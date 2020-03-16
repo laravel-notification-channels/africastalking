@@ -34,7 +34,7 @@ class AfricasTalkingChannelTest extends TestCase
     /** @test */
     public function it_can_send_sms_notification()
     {
-        $this->at->shouldReceive('send')
+        $this->africasTalking->shouldReceive('send')
             ->once()
             ->andReturn(200);
 
