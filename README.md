@@ -26,7 +26,7 @@ The AfricasTalking channel makes it possible to send out Laravel notifications a
 You can install this package via composer:
 
 ``` bash
-composer require ossycodes/africastalking-laravel-notification-channel
+composer require laravel-notification-channels/africastalking
 ```
 
 The service provider gets loaded automatically.
@@ -46,8 +46,8 @@ You will need to [Register](https://account.africastalking.com/auth/register/) a
 This will load the AfricasTalking  data from the `.env` file. Make sure to use the same keys you have used there like `USERNAME`.
 
 
-Add the ```routeNotifcationForAfricasTalking``` method on your notifiable Model. If this is not added,
-the ```phone_number``` field will be automatically used.  
+Add the `routeNotifcationForAfricasTalking` method on your notifiable Model. If this is not added,
+the `phone_number` field will be automatically used.  
 
 ```php
 <?php

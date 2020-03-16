@@ -19,8 +19,8 @@ class AfricasTalkingServiceProvider extends ServiceProvider
         $this->app->when(AfricasTalkingChannel::class)
             ->needs(AfricasTalkingSDK::class)
             ->give(function () {
-                $userName = config("services.africastalking.username");
-                $key = config("services.africastalking.key");
+                $userName = config('services.africastalking.username');
+                $key = config('services.africastalking.key');
                 if (is_null($userName) || is_null($key)) {
                     throw InvalidConfiguration::configurationNotSet();
                 }

@@ -7,8 +7,8 @@ class AfricasTalkingMessage
     /** @var string */
     protected $content;
 
-    /** @var string */
-    protected $from = null;
+    /** @var string|null */
+    protected $from;
 
     /**
      * Set the content for this message
@@ -17,7 +17,7 @@ class AfricasTalkingMessage
      * @param string $content
      * @return this
      */
-    public function content(string $content)
+    public function content(string $content) :self
     {
         $this->content = trim($content);
 
@@ -30,7 +30,7 @@ class AfricasTalkingMessage
      * @param string $from
      * @return this
      */
-    public function from(string $from)
+    public function from(string $from) :self
     {
         $this->from = trim($from);
 
