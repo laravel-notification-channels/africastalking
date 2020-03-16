@@ -28,10 +28,11 @@ class AfricasTalkingChannel
     public function send($notifiable, Notification $notification)
     {
         $message = $notification->toAfricasTalking($notifiable);
-     
+
         if (! $phoneNumber = $notifiable->routeNotificationFor('africasTalking')) {
             $phoneNumber = $notifiable->phone_number;
         }
+
 
         try {
             $this->africasTalking->send([
