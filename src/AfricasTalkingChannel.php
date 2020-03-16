@@ -33,7 +33,6 @@ class AfricasTalkingChannel
             $phoneNumber = $notifiable->phone_number;
         }
 
-
         try {
             $this->africasTalking->send([
                 'to' => $phoneNumber,
