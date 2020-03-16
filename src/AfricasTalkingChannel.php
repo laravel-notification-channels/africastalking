@@ -11,12 +11,12 @@ use NotificationChannels\AfricasTalking\Exceptions\CouldNotSendNotification;
 class AfricasTalkingChannel
 {
     /** @var AfricasTalkingSDK */
-    protected $at;
+    protected $africasTalking;
 
     /** @param TwitterOAuth $twitter */
-    public function __construct(AfricasTalkingSDK $at)
+    public function __construct(AfricasTalkingSDK $africasTalking)
     {
-        $this->at = $at;
+        $this->africasTalking = $africasTalking;
     }
 
     /**
@@ -30,19 +30,19 @@ class AfricasTalkingChannel
     {
         $message = $notification->toAfricasTalking($notifiable);
         $driver = $notifiable->routeNotificationFor('AfricasTalking');
-        
-        $phoneNumber = $driver
-                ? $driver 
-                : $notifiable->phone_number;
 
-        try{
-           $this->at->send([
-            "to" => $phoneNumber,
-            "message" => $message->getContent(),
-            "from" => $message->getSender() ]);
-        } catch(Exception $e) {
+        $phoneNumber = $driver
+            ? $driver
+            : $notifiable->phone_number;
+
+        try {
+            $this->africasTalking->send([
+                'to' => $phoneNumber,
+                'message' => $message->getContent(),
+                'from' => $message->getSender()
+            ]);
+        } catch (Exception $e) {
             throw CouldNotSendNotification::serviceRespondedWithAnError($e->getMessage());
         }
     }
-      
 }

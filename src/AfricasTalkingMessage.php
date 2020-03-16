@@ -17,7 +17,7 @@ class AfricasTalkingMessage
      * @param string $content
      * @return this
      */
-    public function content(string $content) :self
+    public function content(string $content): self
     {
         $this->content = trim($content);
 
@@ -30,7 +30,7 @@ class AfricasTalkingMessage
      * @param string $from
      * @return this
      */
-    public function from(string $from) :self
+    public function from(string $from): self
     {
         $this->from = trim($from);
 
@@ -54,6 +54,6 @@ class AfricasTalkingMessage
      */
     public function getSender()
     {
-        return $this->from ?? config("services.africastalking.from");
+        return $this->from ?? config('services.africastalking.from');
     }
 }
