@@ -1,0 +1,54 @@
+{
+    "name": "laravel-notification-channels/africastalking",
+    "description": "This package makes it easy to send notifications via AfricasTalking with Laravel",
+    "keywords": [
+        "africastalking",
+        "laravel",
+        "notification",
+        "notification-channel",
+        "laravel-notification-channel"
+    ],
+    "homepage": "https://github.com/laravel-notification-channels/africastalking",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Osaigbovo Emmanuel",
+            "email": "osaigbovoemmanuel1@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2.5",
+        "africastalking/africastalking": "^2.3",
+        "illuminate/notifications": "~5.5 || ~6.0 || ~7.0",
+        "illuminate/support": "~5.5 || ~6.0 || ~7.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.3.1",
+        "phpunit/phpunit": "^8.0",
+        "orchestra/testbench": "~5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "NotificationChannels\\AfricasTalking\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NotificationChannels\\AfricasTalking\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NotificationChannels\\AfricasTalking\\AfricasTalkingServiceProvider"
+            ]
+        }
+    }
+}
