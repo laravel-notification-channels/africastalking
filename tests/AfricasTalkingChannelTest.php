@@ -12,7 +12,7 @@ use NotificationChannels\AfricasTalking\Exceptions\CouldNotSendNotification;
 class AfricasTalkingChannelTest extends TestCase
 {
     /** @var Mockery\Mock */
-    protected $at;
+    protected $africasTalking;
 
     /** @var \NotificationChannels\Twitter\AfricasTalkingChannel */
     protected $channel;
@@ -20,14 +20,14 @@ class AfricasTalkingChannelTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->at = Mockery::mock(AfricasTalkingSDK::class);
-        $this->channel = new AfricasTalkingChannel($this->at);
+        $this->africasTalking = Mockery::mock(AfricasTalkingSDK::class);
+        $this->channel = new AfricasTalkingChannel($this->africasTalking);
     }
 
     /** @test */
     public function it_can_be_instantiated()
     {
-        $this->assertInstanceOf(AfricasTalkingSDK::class, $this->at);
+        $this->assertInstanceOf(AfricasTalkingSDK::class, $this->africasTalking);
         $this->assertInstanceOf(AfricasTalkingChannel::class, $this->channel);
     }
 
@@ -40,7 +40,6 @@ class AfricasTalkingChannelTest extends TestCase
 
         $this->channel->send(new TestNotifiable, new TestNotification);
     }
-
 }
 
 class TestNotifiable
