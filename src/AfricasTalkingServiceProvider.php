@@ -2,8 +2,8 @@
 
 namespace NotificationChannels\AfricasTalking;
 
-use Illuminate\Support\ServiceProvider;
 use AfricasTalking\SDK\AfricasTalking as AfricasTalkingSDK;
+use Illuminate\Support\ServiceProvider;
 use NotificationChannels\AfricasTalking\Exceptions\InvalidConfiguration;
 
 class AfricasTalkingServiceProvider extends ServiceProvider
@@ -28,6 +28,7 @@ class AfricasTalkingServiceProvider extends ServiceProvider
                     $userName,
                     $key
                 );
+                
                 return $at->sms();
             });
     }

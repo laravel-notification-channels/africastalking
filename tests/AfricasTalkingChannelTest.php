@@ -2,9 +2,9 @@
 
 namespace NotificationChannels\AfricasTalking\Test;
 
-use Mockery;
-use Illuminate\Notifications\Notification;
 use AfricasTalking\SDK\AfricasTalking as AfricasTalkingSDK;
+use Illuminate\Notifications\Notification;
+use Mockery;
 use NotificationChannels\AfricasTalking\AfricasTalkingChannel;
 use NotificationChannels\AfricasTalking\AfricasTalkingMessage;
 use NotificationChannels\AfricasTalking\Exceptions\CouldNotSendNotification;
@@ -51,7 +51,7 @@ class TestNotifiable
      */
     public function routeNotificationForAfricasTalking()
     {
-        return "+2341111111111";
+        return '+2341111111111';
     }
 }
 

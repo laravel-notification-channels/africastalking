@@ -3,7 +3,6 @@
 namespace NotificationChannels\AfricasTalking\Test;
 
 use NotificationChannels\AfricasTalking\AfricasTalkingMessage;
-use NotificationChannels\AfricasTalking\Exceptions\InvalidConfiguration;
 
 class AfricasTalkingMessageTest extends TestCase
 {

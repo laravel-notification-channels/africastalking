@@ -11,7 +11,7 @@ class AfricasTalkingMessage
     protected $from;
 
     /**
-     * Set the content for this message
+     * Set the content for this message.
      * 
      * 
      * @param string $content
@@ -25,7 +25,7 @@ class AfricasTalkingMessage
     }
 
     /**
-     * Set the sender for this message
+     * Set the sender for this message.
      * 
      * @param string $from
      * @return this
@@ -38,7 +38,7 @@ class AfricasTalkingMessage
     }
 
     /**
-     * Get Message Content
+     * Get Message Content.
      * 
      * @return string
      */
@@ -48,7 +48,7 @@ class AfricasTalkingMessage
     }
 
     /**
-     * Get Sender Info
+     * Get Sender Info.
      * 
      * @return string
      */
