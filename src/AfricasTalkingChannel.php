@@ -29,7 +29,7 @@ class AfricasTalkingChannel
     {
         $message = $notification->toAfricasTalking($notifiable);
      
-        if (!$phoneNumber = $notifiable->routeNotificationFor('africasTalking')) {
+        if (! $phoneNumber = $notifiable->routeNotificationFor('africasTalking')) {
             $phoneNumber = $notifiable->phone_number;
         }
 

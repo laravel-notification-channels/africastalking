@@ -24,11 +24,11 @@ class AfricasTalkingServiceProvider extends ServiceProvider
                 if (is_null($userName) || is_null($key)) {
                     throw InvalidConfiguration::configurationNotSet();
                 }
-                $at =  new AfricasTalkingSDK(
+                $at = new AfricasTalkingSDK(
                     $userName,
                     $key
                 );
-                
+
                 return $at->sms();
             });
     }

@@ -55,7 +55,6 @@ class TestNotifiable
     }
 }
 
-
 class TestNotification extends Notification
 {
     /**
