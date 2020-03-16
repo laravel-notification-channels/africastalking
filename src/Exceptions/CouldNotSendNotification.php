@@ -14,5 +14,4 @@ class CouldNotSendNotification extends Exception
     {
         return new static("AfricasTalking service responded with an error: {$error}");
     }
-    
 }
