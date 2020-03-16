@@ -13,7 +13,7 @@ class AfricasTalkingChannel
     /** @var AfricasTalkingSDK */
     protected $africasTalking;
 
-    /** @param TwitterOAuth $twitter */
+    /** @param AfricasTalkingSDK $africasTalking */
     public function __construct(AfricasTalkingSDK $africasTalking)
     {
         $this->africasTalking = $africasTalking;
@@ -29,7 +29,7 @@ class AfricasTalkingChannel
     public function send($notifiable, Notification $notification)
     {
         $message = $notification->toAfricasTalking($notifiable);
-        $driver = $notifiable->routeNotificationFor('AfricasTalking');
+        $driver = $notifiable->routeNotificationFor('africasTalking');
 
         $phoneNumber = $driver
             ? $driver
