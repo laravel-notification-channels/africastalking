@@ -29,7 +29,7 @@ class AfricasTalkingServiceProvider extends ServiceProvider
                     $key
                 );
 
-                return $at->sms();
+                return $at;
             });
     }
 }
