@@ -1,5 +1,10 @@
 # AfricasTalking notification channel for Laravel
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/laravel-notification-channels/africastalking.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/africastalking)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![StyleCI](https://styleci.io/repos/247548130/shield)](https://styleci.io/repos/209406724)
+[![Quality Score](https://img.shields.io/scrutinizer/g/laravel-notification-channels/africastalking.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/africastalking)
+[![Total Downloads](https://img.shields.io/packagist/dt/laravel-notification-channels/africastalking.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/africastalking)
 
 This package makes it easy to send notifications using [AfricasTalking](https://build.at-labs.io/docs/sms%2Fsending) with Laravel.
 
