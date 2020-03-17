@@ -34,7 +34,7 @@ class AfricasTalkingChannel
         }
 
         try {
-            $this->africasTalking->send([
+            $this->africasTalking->sms()->send([
                 'to' => $phoneNumber,
                 'message' => $message->getContent(),
                 'from' => $message->getSender(),
