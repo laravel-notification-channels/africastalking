@@ -38,18 +38,23 @@ The service provider gets loaded automatically.
 
 ### Setting up the AfricasTalking service
 
-You will need to [Register](https://account.africastalking.com/auth/register/) and then go to your sandbox app [Go To SandBox App](https://account.africastalking.com/apps/sandbox). [Click on settings](https://account.africastalking.com/apps/sandbox/settings/key) Within this page, you will generate your `Username and key`. Place them inside your `.env` file. To load them, add this to your `config/services.php` file:
+You will need to [Register](https://account.africastalking.com/auth/register/) and then go to your sandbox app [Go To SandBox App](https://account.africastalking.com/apps/sandbox). [Click on settings](https://account.africastalking.com/apps/sandbox/settings/key) Within this page, you will generate your `Username and key`. Place them inside your `.env` file. Remember to add your Sender ID that you will be using to send the messages. 
+
+```bash
+AT_USERNAME=""
+AT_KEY=""
+AT_FROM=""
+```
+
+To load them, add this to your `config/services.php` . This will load the AfricasTalking  data from the `.env` file.file:
 
 ```php
 'africastalking' => [
-    'username'    => env('USERNAME'),
-    'key' => env('KEY'),
+    'username'      => env('AT_USERNAME'),
+    'key'           => env('AT_KEY'),
+    'from'          => env('AT_FROM'),
 ]
 ```
-
-
-This will load the AfricasTalking  data from the `.env` file. Make sure to use the same keys you have used there like `USERNAME`.
-
 
 Add the `routeNotifcationForAfricasTalking` method on your notifiable Model. If this is not added,
 the `phone_number` field will be automatically used.  
@@ -133,6 +138,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 ## Credits
 
 - [Osaigbovo Emmanuel](https://github.com/ossycodes)
+- [Osen Concepts](https://github.com/osenco)
 - [All Contributors](../../contributors)
 
 ## License
