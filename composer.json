@@ -17,8 +17,8 @@
     }],
     "require": {
         "php": "^7.2.5",
-        "appslabke/africastalking": "^2.5.1",
-        "guzzlehttp/guzzle": "^7.0.1",
+        "africastalking/africastalking": "^3.0",
+        "guzzlehttp/guzzle": "^6.0 || ^7.0",
         "illuminate/notifications": "~5.5 || ~6.0 || ~7.0 || ^8.0",
         "illuminate/support": "~5.5 || ~6.0 || ~7.0 ||  ^8.0"
     },
