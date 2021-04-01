@@ -16,7 +16,7 @@
         "role": "Developer"
     }],
     "require": {
-        "php": "^7.2.5 || ^8.0",
+        "php": ">=7.2.5",
         "africastalking/africastalking": "^3.0",
         "guzzlehttp/guzzle": "^6.0 || ^7.0",
         "illuminate/notifications": "~5.5 || ~6.0 || ~7.0 || ^8.0",
