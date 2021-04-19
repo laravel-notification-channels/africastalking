@@ -14,6 +14,7 @@ class AfricasTalkingMessage
      * Set content for this message.
      *
      * @param string $content
+     * 
      * @return this
      */
     public function content(string $content): self
