@@ -53,6 +53,6 @@ class AfricasTalkingMessage
      */
     public function getSender()
     {
-        return $this->from ?? config('services.africastalking.from');
+        return $this->from ?? config('africastalking.from');
     }
 }
