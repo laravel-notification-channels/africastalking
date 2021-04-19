@@ -13,7 +13,7 @@ class AfricasTalkingMessageTest extends TestCase
     {
         parent::setUp();
         $this->message = new AfricasTalkingMessage();
-        config(['services.africastalking.from' => 'AFRICASTKNG']);
+        config(['africastalking.from' => 'AFRICASTKNG']);
     }
 
     /** @test */

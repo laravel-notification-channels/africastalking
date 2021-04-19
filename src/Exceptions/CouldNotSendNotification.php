@@ -7,7 +7,6 @@ use Exception;
 class CouldNotSendNotification extends Exception
 {
     /**
-     * @param string $error
      * @return CouldNotSendNotification
      */
     public static function serviceRespondedWithAnError(string $error): self

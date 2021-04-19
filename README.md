@@ -41,19 +41,14 @@ The service provider gets loaded automatically.
 You will need to [Register](https://account.africastalking.com/auth/register/) and then go to your sandbox app [Go To SandBox App](https://account.africastalking.com/apps/sandbox). [Click on settings](https://account.africastalking.com/apps/sandbox/settings/key) Within this page, you will generate your `Username and key`. Place them inside your `.env` file. Remember to add your Sender ID that you will be using to send the messages. 
 
 ```bash
-AT_USERNAME=""
-AT_KEY=""
-AT_FROM=""
+AFRICASTALKING_USERNAME=""
+AFRICASTALKING_KEY=""
+AFRICASTALKING_FROM=""
 ```
-
-To load them, add this to your `config/services.php` . This will load the AfricasTalking  data from the `.env` file.file:
-
-```php
-'africastalking' => [
-    'username'      => env('AT_USERNAME'),
-    'key'           => env('AT_KEY'),
-    'from'          => env('AT_FROM'),
-]
+ 
+You can publish the package configuration file:
+```bash 
+php artisan vendor:publish --provider="NotificationChannels\AfricasTalking\AfricasTalkingServiceProvider" --tag="config"
 ```
 
 Add the `routeNotifcationForAfricasTalking` method on your notifiable Model. If this is not added,

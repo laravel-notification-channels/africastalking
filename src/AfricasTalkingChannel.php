@@ -22,7 +22,7 @@ class AfricasTalkingChannel
      * Send the given notification.
      *
      * @param mixed $notifiable
-     * @param \Illuminate\Notifications\Notification $notification
+     *
      * @throws CouldNotSendNotification
      */
     public function send($notifiable, Notification $notification)
@@ -35,9 +35,9 @@ class AfricasTalkingChannel
 
         try {
             $this->africasTalking->sms()->send([
-                'to' => $phoneNumber,
+                'to'      => $phoneNumber,
                 'message' => $message->getContent(),
-                'from' => $message->getSender(),
+                'from'    => $message->getSender(),
             ]);
         } catch (Exception $e) {
             throw CouldNotSendNotification::serviceRespondedWithAnError($e->getMessage());
