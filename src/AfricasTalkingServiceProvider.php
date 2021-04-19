@@ -15,11 +15,11 @@ class AfricasTalkingServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/africastalking.php' => config_path('africastalking.php'),
+                __DIR__.'/../config/africastalking.php' => config_path('africastalking.php'),
             ], 'config');
         }
 
-        /**
+        /*
          * Bootstrap the application services.
          */
         $this->app->when(AfricasTalkingChannel::class)
@@ -35,7 +35,6 @@ class AfricasTalkingServiceProvider extends ServiceProvider
                 return new AfricasTalkingSDK($username, $key);
             });
     }
-
 
     /**
      * Register the application services.

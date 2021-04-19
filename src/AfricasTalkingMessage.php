@@ -12,10 +12,6 @@ class AfricasTalkingMessage
 
     /**
      * Set content for this message.
-     *
-     * @param string $content
-     * 
-     * @return this
      */
     public function content(string $content): self
     {
@@ -26,9 +22,6 @@ class AfricasTalkingMessage
 
     /**
      * Set sender for this message.
-     *
-     * @param string $from
-     * @return self
      */
     public function from(string $from): self
     {
