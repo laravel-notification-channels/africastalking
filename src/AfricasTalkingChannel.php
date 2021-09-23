@@ -33,7 +33,7 @@ class AfricasTalkingChannel
             $phoneNumber = $notifiable->phone_number;
         }
 
-        if (is_null($message->getSender())) {
+        if (empty(($message->getSender())) || is_null($message->getSender())) {
             $params = [
                 'to'        => $phoneNumber,
                 'message'   => $message->getContent(),
