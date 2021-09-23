@@ -29,16 +29,25 @@ class AfricasTalkingChannel
     {
         $message = $notification->toAfricasTalking($notifiable);
 
-        if (! $phoneNumber = $notifiable->routeNotificationFor('africasTalking')) {
+        if (!$phoneNumber = $notifiable->routeNotificationFor('africasTalking')) {
             $phoneNumber = $notifiable->phone_number;
         }
 
+        if (is_null($message->getSender())) {
+            $params = [
+                'to'        => $phoneNumber,
+                'message'   => $message->getContent(),
+            ];
+        } else {
+            $params = [
+                    'to'        => $phoneNumber,
+                    'message'   => $message->getContent(),
+                    'from'      => $message->getSender(),
+                ];
+        }
+
         try {
-            $this->africasTalking->sms()->send([
-                'to' => $phoneNumber,
-                'message' => $message->getContent(),
-                'from' => $message->getSender(),
-            ]);
+            $this->africasTalking->sms()->send($params);
         } catch (Exception $e) {
             throw CouldNotSendNotification::serviceRespondedWithAnError($e->getMessage());
         }
