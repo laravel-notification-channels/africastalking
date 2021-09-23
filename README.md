@@ -46,7 +46,7 @@ You will need to [Register](https://account.africastalking.com/auth/register/) a
 ```bash
 AT_USERNAME=""
 AT_KEY=""
-AT_FROM="" // please note if you do not have a sender_ID remove this or leave it as ""
+AT_FROM="" // please note if you do not have a valid sender_ID remove this or leave it as ""
 ```
 
 To load them, add this to your `config/services.php` . This will load the AfricasTalking  data from the `.env` file.file:
