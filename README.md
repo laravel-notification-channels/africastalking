@@ -40,7 +40,7 @@ The service provider gets loaded automatically.
 
 You will need to [Register](https://account.africastalking.com/auth/register/) and then go to your sandbox app [Go To SandBox App](https://account.africastalking.com/apps/sandbox). [Click on settings](https://account.africastalking.com/apps/sandbox/settings/key) Within this page, you will generate your `Username and key`. Place them inside your `.env` file. Remember to add your Sender ID that you will be using to send the messages. 
 
-**Please note if you do not have a VALID sender_ID remove "AT_FROM" from .env or set this or set it to null**
+**Please note if you do not have a VALID sender_ID remove "AT_FROM" from .env or set it to null**
 
 
 ```bash
