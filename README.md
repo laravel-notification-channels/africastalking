@@ -150,4 +150,4 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 ## How do I say Thank you?
 
-Leave a star and follow me on [Twitter](https://twitter.com/ossycodes) .
+Please buy me a cup of coffee https://www.paypal.com/paypalme/osaigbovoemmanuel , Leave a star and follow me on [Twitter](https://twitter.com/ossycodes) .
