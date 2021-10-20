@@ -122,6 +122,13 @@ class NewsWasPublished extends Notification
     }
 }
 ```
+You can also modify who the notification(SMS) is sent from, this will overide the AT_FROM= in your .env
+
+``` php
+        return (new AfricasTalkingMessage())
+                    ->content('Your SMS message content')
+                    ->setFrom("set any sender name here");
+```
 
 
 ## Testing
