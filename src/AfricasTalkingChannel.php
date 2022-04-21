@@ -47,7 +47,7 @@ class AfricasTalkingChannel
         }
 
         try {
-            $this->africasTalking->sms()->send($params);
+            return $this->africasTalking->sms()->send($params);
         } catch (Exception $e) {
             throw CouldNotSendNotification::serviceRespondedWithAnError($e->getMessage());
         }

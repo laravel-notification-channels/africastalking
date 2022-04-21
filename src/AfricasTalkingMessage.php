@@ -29,7 +29,7 @@ class AfricasTalkingMessage
      * @param string $from
      * @return self
      */
-    public function from(string $from): self
+    public function setFrom(string $from): self
     {
         $this->from = trim($from);
 
