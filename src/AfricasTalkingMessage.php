@@ -10,6 +10,9 @@ class AfricasTalkingMessage
     /** @var string|null */
     protected $from;
 
+    /** @var string|null */
+    protected $to;
+
     /**
      * Set content for this message.
      *
@@ -36,6 +39,19 @@ class AfricasTalkingMessage
         return $this;
     }
 
+     /**
+     * Set recipient for this message.
+     *
+     * @param string $from
+     * @return self
+     */
+    public function to(string $to): self
+    {
+        $this->to = trim($to);
+
+        return $this;
+    }
+
     /**
      * Get message content.
      *
@@ -54,5 +70,15 @@ class AfricasTalkingMessage
     public function getSender()
     {
         return $this->from ?? config('services.africastalking.from');
+    }
+
+    /**
+     * Get recipient info.
+     *
+     * @return string
+     */
+    public function getTo()
+    {
+        return $this->to ?? null;
     }
 }
