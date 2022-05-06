@@ -136,7 +136,7 @@ You can also modify who the notification(SMS) is sent to (the recipient)
 ``` php
         return (new AfricasTalkingMessage())
                     ->content('Your SMS message content')
-                    ->to("put the recipient phonenumber here");
+                    ->to("put the recipient phonenumber here"); //eg ->to(1111111111)
 ```
 It's important to know the Order in which the recipient phone number the notification(SMS) will be sent to will be used
 
