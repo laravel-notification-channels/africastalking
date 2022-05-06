@@ -31,7 +31,11 @@ class AfricasTalkingChannel
         $message = $notification->toAfricasTalking($notifiable);
 
         if (!$phoneNumber = $notifiable->routeNotificationFor('africasTalking')) {
-            $phoneNumber = $notifiable->phone_number ?? $message->getTo();
+            $phoneNumber = $notifiable->phone_number;
+        }
+
+        if(!empty($message->getTo())) {
+            $phoneNumber = $message->getTo();
         }
 
         if(empty($phoneNumber)) {
