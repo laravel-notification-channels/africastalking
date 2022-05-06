@@ -82,7 +82,7 @@ class User extends Authenticatable
      */
     public function routeNotificationForAfricasTalking($notification)
     {
-        return $this->phone;
+        return $this->phone_number;
     }
 }
 ```
