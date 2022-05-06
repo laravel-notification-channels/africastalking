@@ -128,7 +128,7 @@ You can also modify who the notification(SMS) is sent from, this will overide th
 ``` php
         return (new AfricasTalkingMessage())
                     ->content('Your SMS message content')
-                    ->setFrom("set any sender id/name here");
+                    ->from("set any sender id/name here");
 ```
 
 
