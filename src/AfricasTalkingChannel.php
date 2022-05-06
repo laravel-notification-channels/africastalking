@@ -2,9 +2,10 @@
 
 namespace NotificationChannels\AfricasTalking;
 
-use AfricasTalking\SDK\AfricasTalking as AfricasTalkingSDK;
 use Exception;
 use Illuminate\Notifications\Notification;
+use AfricasTalking\SDK\AfricasTalking as AfricasTalkingSDK;
+use NotificationChannels\AfricasTalking\Exceptions\InvalidPhonenumber;
 use NotificationChannels\AfricasTalking\Exceptions\CouldNotSendNotification;
 
 class AfricasTalkingChannel
@@ -30,7 +31,11 @@ class AfricasTalkingChannel
         $message = $notification->toAfricasTalking($notifiable);
 
         if (!$phoneNumber = $notifiable->routeNotificationFor('africasTalking')) {
-            $phoneNumber = $notifiable->phone_number;
+            $phoneNumber = $notifiable->phone_number ?? $message->getTo();
+        }
+
+        if(empty($phoneNumber)) {
+            throw InvalidPhonenumber::configurationNotSet();
         }
 
         if (empty(($message->getSender())) || is_null($message->getSender())) {
@@ -47,7 +52,7 @@ class AfricasTalkingChannel
         }
 
         try {
-            $this->africasTalking->sms()->send($params);
+            return $this->africasTalking->sms()->send($params);
         } catch (Exception $e) {
             throw CouldNotSendNotification::serviceRespondedWithAnError($e->getMessage());
         }
