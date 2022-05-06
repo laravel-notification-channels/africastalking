@@ -142,7 +142,7 @@ It's important to know the Order in which the recipient phone number the notific
 
 1) If you have defined the routeNotificationForAfricasTalking() method on the Notifiable class (User.php in this case) and returned a valid phone number, then that will be used.
 
-2) if you did not define routeNotificationForAfricasTalking() method on the Notifiable class (User.php in this case), then the phone attribute of the User will be used ($user->phone)
+2) if you did not define routeNotificationForAfricasTalking() method on the Notifiable class (User.php in this case), then the phone_number attribute of the User will be used ($user->phone_number)
 
 3) Lastly if 1 and 2 are not set, then you can set the recipient phone number using ->to(19283281921)
 
