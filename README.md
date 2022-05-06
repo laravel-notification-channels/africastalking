@@ -144,7 +144,7 @@ It's important to know the Order in which the recipient phone number the notific
 
 2) if you did not define routeNotificationForAfricasTalking() method on the Notifiable class (User.php in this case), then the phone_number attribute of the User will be used ($user->phone_number)
 
-3) Lastly if recipient phone number is set using ->to(1111111), this will overide the phone number provided in either 1 or 2.
+3) Lastly if the recipient phone number is set using ->to(1111111), this will overide the phone number provided in either 1 or 2.
 
 ``` php
         return (new AfricasTalkingMessage())
