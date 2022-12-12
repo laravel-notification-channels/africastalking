@@ -30,13 +30,7 @@ class AfricasTalkingChannel
     {
         $message = $notification->toAfricasTalking($notifiable);
 
-        if (!$phoneNumber = $notifiable->routeNotificationFor('africasTalking')) {
-            $phoneNumber = $notifiable->phone_number;
-        }
-
-        if(!empty($message->getTo())) {
-            $phoneNumber = $message->getTo();
-        }
+        $phoneNumber = $this->getTo($notifiable, $notification, $message);
 
         if(empty($phoneNumber)) {
             throw InvalidPhonenumber::configurationNotSet();
@@ -60,5 +54,27 @@ class AfricasTalkingChannel
         } catch (Exception $e) {
             throw CouldNotSendNotification::serviceRespondedWithAnError($e->getMessage());
         }
+    }
+
+
+    private function getTo($notifiable, Notification $notification, AfricasTalkingMessage $message)
+    {
+        if(!empty($message->getTo())) {
+            return $message->getTo();
+        }
+
+        if ($notifiable->routeNotificationFor(static::class, $notification)) {
+            return $notifiable->routeNotificationFor(static::class, $notification);
+        }
+
+        if ($notifiable->routeNotificationFor('africasTalking', $notification)) {
+            return $notifiable->routeNotificationFor('africasTalking', $notification);
+        }
+
+        if (isset($notifiable->phone_number)) {
+            return $notifiable->phone_number;
+        }
+
+        throw CouldNotSendNotification::invalidReceiver();
     }
 }
