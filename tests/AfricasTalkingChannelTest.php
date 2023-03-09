@@ -123,7 +123,7 @@ class TestNotification extends Notification
     /**
      * @param $notifiable
      * @return AfricasTalkingMessage
-     * 
+     *
      * @throws CouldNotSendNotification
      */
     public function toAfricasTalking($notifiable)
