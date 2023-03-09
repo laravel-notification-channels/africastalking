@@ -2,11 +2,11 @@
 
 namespace NotificationChannels\AfricasTalking;
 
+use AfricasTalking\SDK\AfricasTalking as AfricasTalkingSDK;
 use Exception;
 use Illuminate\Notifications\Notification;
-use AfricasTalking\SDK\AfricasTalking as AfricasTalkingSDK;
-use NotificationChannels\AfricasTalking\Exceptions\InvalidPhonenumber;
 use NotificationChannels\AfricasTalking\Exceptions\CouldNotSendNotification;
+use NotificationChannels\AfricasTalking\Exceptions\InvalidPhonenumber;
 
 class AfricasTalkingChannel
 {
@@ -22,8 +22,9 @@ class AfricasTalkingChannel
     /**
      * Send the given notification.
      *
-     * @param mixed $notifiable
-     * @param \Illuminate\Notifications\Notification $notification
+     * @param  mixed  $notifiable
+     * @param  \Illuminate\Notifications\Notification  $notification
+     *
      * @throws CouldNotSendNotification
      */
     public function send($notifiable, Notification $notification)
@@ -32,7 +33,7 @@ class AfricasTalkingChannel
 
         $phoneNumber = $this->getTo($notifiable, $notification, $message);
 
-        if(empty($phoneNumber)) {
+        if (empty($phoneNumber)) {
             throw InvalidPhonenumber::configurationNotSet();
         }
 
@@ -43,10 +44,10 @@ class AfricasTalkingChannel
             ];
         } else {
             $params = [
-                    'to'        => $phoneNumber,
-                    'message'   => $message->getContent(),
-                    'from'      => $message->getSender(),
-                ];
+                'to'        => $phoneNumber,
+                'message'   => $message->getContent(),
+                'from'      => $message->getSender(),
+            ];
         }
 
         try {
@@ -59,7 +60,7 @@ class AfricasTalkingChannel
 
     private function getTo($notifiable, Notification $notification, AfricasTalkingMessage $message)
     {
-        if(!empty($message->getTo())) {
+        if(! empty($message->getTo())) {
             return $message->getTo();
         }
 

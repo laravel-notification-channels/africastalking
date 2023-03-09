@@ -59,7 +59,7 @@ class AfricasTalkingChannelTest extends TestCase
             ->once()
             ->andReturn(200);
 
-        $this->channel->send((new AnonymousNotifiable())->route(AfricasTalkingChannel::class, "+1111111111"), new TestNotification);
+        $this->channel->send((new AnonymousNotifiable())->route(AfricasTalkingChannel::class, '+1111111111'), new TestNotification);
     }
 
     /** @test */
@@ -73,7 +73,7 @@ class AfricasTalkingChannelTest extends TestCase
             ->once()
             ->andReturn(200);
 
-        $this->channel->send((new AnonymousNotifiable())->route('africasTalking', "+1111111111"), new TestNotification);
+        $this->channel->send((new AnonymousNotifiable())->route('africasTalking', '+1111111111'), new TestNotification);
     }
 
     /** @test */
@@ -124,6 +124,7 @@ class TestNotification extends Notification
      * @param $notifiable
      * @return AfricasTalkingMessage
      * @throws CouldNotSendNotification
+     *
      */
     public function toAfricasTalking($notifiable)
     {
@@ -137,6 +138,7 @@ class TestNotificationWithGetTo extends Notification
      * @param $notifiable
      * @return AfricasTalkingMessage
      * @throws CouldNotSendNotification
+     *
      */
     public function toAfricasTalking($notifiable)
     {
@@ -144,7 +146,6 @@ class TestNotificationWithGetTo extends Notification
             ->to('+22222222222');
     }
 }
-
 
 class Notifiable
 {
