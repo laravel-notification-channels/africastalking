@@ -57,7 +57,6 @@ class AfricasTalkingChannel
         }
     }
 
-
     private function getTo($notifiable, Notification $notification, AfricasTalkingMessage $message)
     {
         if(! empty($message->getTo())) {
