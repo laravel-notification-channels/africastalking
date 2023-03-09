@@ -123,8 +123,8 @@ class TestNotification extends Notification
     /**
      * @param $notifiable
      * @return AfricasTalkingMessage
+     * 
      * @throws CouldNotSendNotification
-     *
      */
     public function toAfricasTalking($notifiable)
     {
@@ -137,8 +137,8 @@ class TestNotificationWithGetTo extends Notification
     /**
      * @param $notifiable
      * @return AfricasTalkingMessage
-     * @throws CouldNotSendNotification
      *
+     * @throws CouldNotSendNotification
      */
     public function toAfricasTalking($notifiable)
     {
