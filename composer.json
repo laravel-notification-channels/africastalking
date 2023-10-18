@@ -19,8 +19,8 @@
         "php": ">=7.2.5",
         "africastalking/africastalking": "^3.0",
         "guzzlehttp/guzzle": "^6.2 || ^7.0",
-        "illuminate/notifications": "5.5 - 10.0",
-        "illuminate/support": "5.5 - 10.0"
+        "illuminate/notifications": "5.5 - 10",
+        "illuminate/support": "5.5 - 10"
     },
     "require-dev": {
         "mockery/mockery": "^1.3",
