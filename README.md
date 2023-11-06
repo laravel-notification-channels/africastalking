@@ -122,12 +122,12 @@ class NewsWasPublished extends Notification
     }
 }
 ```
-You can also modify who the notification(SMS) is sent from, this will overide the AT_FROM= in your .env
+You can also modify who the notification(SMS) is sent from, this will override the AT_FROM= in your .env
 **Please only do this if you have a VALID sender_ID**
 
 ``` php
         return (new AfricasTalkingMessage())
-                    ->content('Your SMS message content')
+                    ->content("Your SMS message content")
                     ->from("set any sender id/name here");
 ```
 
@@ -135,8 +135,8 @@ You can also modify who the notification(SMS) is sent to (the recipient)
 
 ``` php
         return (new AfricasTalkingMessage())
-                    ->content('Your SMS message content')
-                    ->to("put the recipient phonenumber here"); //eg ->to(1111111111)
+                    ->content("Your SMS message content")
+                    ->to("put the recipient phone number here"); //eg ->to(1111111111)
 ```
 It's important to know the Order in which the recipient phone number the notification(SMS) will be sent to will be used
 
@@ -144,12 +144,12 @@ It's important to know the Order in which the recipient phone number the notific
 
 2) if you did not define routeNotificationForAfricasTalking() method on the Notifiable class (User.php in this case), then the phone_number attribute of the User will be used ($user->phone_number)
 
-3) Lastly if the recipient phone number is set using ->to(1111111), this will overide the phone number provided in either 1 or 2.
+3) Lastly if the recipient phone number is set using ->to(1111111), this will override the phone number provided in either 1 or 2.
 
 ``` php
         return (new AfricasTalkingMessage())
-                    ->content('Your SMS message content')
-                    ->to("put the recipient phonenumber here"); //eg ->to(11111111)
+                    ->content("Your SMS message content")
+                    ->to("put the recipient phone number here"); //eg ->to(11111111)
 ```
 
 ## Testing
