@@ -3,6 +3,7 @@
 namespace NotificationChannels\AfricasTalking\Test;
 
 use NotificationChannels\AfricasTalking\AfricasTalkingMessage;
+use PHPUnit\Framework\Attributes\Test;
 
 class AfricasTalkingMessageTest extends TestCase
 {
@@ -16,21 +17,21 @@ class AfricasTalkingMessageTest extends TestCase
         config(['services.africastalking.from' => 'AFRICASTKNG']);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_get_the_content()
     {
         $this->message->content('myMessage');
         $this->assertEquals('myMessage', $this->message->getContent());
     }
 
-    /** @test */
+    #[Test]
     public function it_can_get_the_sender()
     {
         $this->message->from('YOURSHORTCODE');
         $this->assertEquals('YOURSHORTCODE', $this->message->getSender());
     }
 
-    /** @test */
+    #[Test]
     public function it_can_get_the_default_sender()
     {
         $this->assertEquals('AFRICASTKNG', $this->message->getSender());

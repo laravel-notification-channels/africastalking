@@ -11,14 +11,20 @@ use NotificationChannels\AfricasTalking\AfricasTalkingChannel;
 use NotificationChannels\AfricasTalking\AfricasTalkingMessage;
 use NotificationChannels\AfricasTalking\Exceptions\CouldNotSendNotification;
 
+use PHPUnit\Framework\Attributes\Test;
+use Throwable;
+
 class AfricasTalkingChannelTest extends TestCase
 {
     /** @var Mockery\Mock */
     protected $africasTalking;
 
-    /** @var \NotificationChannels\AfricasTalking\AfricasTalkingChannel */
+    /** @var AfricasTalkingChannel */
     protected $channel;
 
+    /**
+     * @throws Throwable
+     */
     public function setUp(): void
     {
         parent::setUp();
@@ -27,14 +33,14 @@ class AfricasTalkingChannelTest extends TestCase
         $this->channel = new AfricasTalkingChannel($this->africasTalking);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_be_instantiated()
     {
         $this->assertInstanceOf(AfricasTalkingSDK::class, $this->africasTalking);
         $this->assertInstanceOf(AfricasTalkingChannel::class, $this->channel);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_send_sms_notification_to_notifiable_with_method()
     {
         $this->africasTalking->expects('sms')
@@ -48,7 +54,7 @@ class AfricasTalkingChannelTest extends TestCase
         $this->channel->send(new NotifiableWithMethod, new TestNotification);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_send_sms_notification_to_anonymous_notifiable_using_class_name()
     {
         $this->africasTalking->expects('sms')
@@ -62,7 +68,7 @@ class AfricasTalkingChannelTest extends TestCase
         $this->channel->send((new AnonymousNotifiable())->route(AfricasTalkingChannel::class, '+1111111111'), new TestNotification);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_send_sms_notification_to_anonymous_notifiable_using_string_name()
     {
         $this->africasTalking->expects('sms')
@@ -76,7 +82,7 @@ class AfricasTalkingChannelTest extends TestCase
         $this->channel->send((new AnonymousNotifiable())->route('africasTalking', '+1111111111'), new TestNotification);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_send_sms_notification_to_notifiable_with_attribute()
     {
         $this->africasTalking->expects('sms')
@@ -90,7 +96,7 @@ class AfricasTalkingChannelTest extends TestCase
         $this->channel->send(new NotifiableWithAttribute(), new TestNotification);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_send_sms_notification_to_message_get_to()
     {
         $this->africasTalking->expects('sms')
