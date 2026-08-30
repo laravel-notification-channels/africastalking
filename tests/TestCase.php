@@ -6,7 +6,7 @@ use Mockery;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
-    public function tearDown(): void
+    protected function tearDown(): void
     {
         parent::tearDown();
 
