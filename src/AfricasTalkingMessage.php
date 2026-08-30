@@ -5,13 +5,13 @@ namespace NotificationChannels\AfricasTalking;
 class AfricasTalkingMessage
 {
     /** @var string */
-    protected $content;
+    protected string $content = '';
 
     /** @var string|null */
-    protected $from;
+    protected ?string $from;
 
     /** @var string|null */
-    protected $to;
+    protected ?string $to;
 
     /**
      * Set content for this message.
@@ -42,7 +42,7 @@ class AfricasTalkingMessage
     /**
      * Set recipient for this message.
      *
-     * @param  string  $from
+     * @param string $to
      * @return self
      */
     public function to(string $to): self
@@ -57,7 +57,7 @@ class AfricasTalkingMessage
      *
      * @return string
      */
-    public function getContent()
+    public function getContent(): string
     {
         return $this->content;
     }
@@ -65,9 +65,9 @@ class AfricasTalkingMessage
     /**
      * Get sender info.
      *
-     * @return string
+     * @return string|null
      */
-    public function getSender()
+    public function getSender(): ?string
     {
         return $this->from ?? config('services.africastalking.from');
     }
@@ -75,9 +75,9 @@ class AfricasTalkingMessage
     /**
      * Get recipient info.
      *
-     * @return string
+     * @return string|null
      */
-    public function getTo()
+    public function getTo(): ?string
     {
         return $this->to ?? null;
     }
