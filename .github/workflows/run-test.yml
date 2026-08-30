@@ -4,71 +4,27 @@ on: [push, pull_request]
 
 jobs:
     test:
-        runs-on: ubuntu-latest
-
+        runs-on: ${{ matrix.os }}
         strategy:
             fail-fast: true
             matrix:
                 os: [ubuntu-latest]
-                php: [7.2, 7.3, 7.4, '8.0', 8.1, 8.2, 8.3]
-                laravel: [6.*, 7.*, 8.*, 9.*, 10.*, 11.*]
+                php: ['8.3', '8.4']
+                laravel: [11.*, 12.*,13.*]
                 stability: [prefer-stable]
                 include:
-                    - laravel: 6.*
-                      testbench: 4.*
-                      carbon: ^2.63
-                    - laravel: 7.*
-                      testbench: 5.*
-                      carbon: ^2.63
-                    - laravel: 8.*
-                      testbench: 6.*
-                      carbon: ^2.63
-                    - laravel: 9.*
-                      testbench: 7.*
-                      carbon: ^2.63
-                    - laravel: 10.*
-                      testbench: 8.*
-                      carbon: ^2.63
                     - laravel: 11.*
                       testbench: 9.*
-                      carbon: ^2.63
-                exclude:
-                    - laravel: 6.*
-                      php: 8.1
-                    - laravel: 6.*
-                      php: 8.2
-                    - laravel: 7.*
-                      php: 8.1
-                    - laravel: 7.*
-                      php: 8.2
-                    - laravel: 8.*
-                      php: 7.2
-                    - laravel: 9.*
-                      php: 7.2
-                    - laravel: 9.*
-                      php: 7.3
-                    - laravel: 9.*
-                      php: 7.4
-                    - laravel: 10.*
-                      php: 7.2
-                    - laravel: 10.*
-                      php: 7.3
-                    - laravel: 10.*
-                      php: 7.4
-                    - laravel: 10.*
-                      php: '8.0'
-                    - laravel: 11.*
-                      php: 7.2
-                    - laravel: 11.*
-                      php: 7.3
-                    - laravel: 11.*
-                      php: 7.4
+                    - laravel: 12.*
+                      testbench: 10.*
+                    - laravel: 13.*
+                      testbench: 11.*
 
         name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
 
         steps:
             - name: Checkout code
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
 
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
@@ -78,18 +34,13 @@ jobs:
                   tools: composer:v2
                   coverage: none
 
-            - name: Setup problem matchers
-              run: |
-                  echo "::add-matcher::${{ runner.tool_cache }}/php.json"
-                  echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
-
             - name: Install dependencies
               run: |
-                  composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" "nesbot/carbon:${{ matrix.carbon }}" --no-interaction --no-update
+                  composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
                   composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
             - name: List Installed Dependencies
               run: composer show -D
 
             - name: Execute tests
-              run: vendor/bin/phpunit
+              run: vendor/bin/pest
